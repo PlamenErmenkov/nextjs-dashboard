@@ -2,6 +2,8 @@ import { sql } from '@vercel/postgres';
 import {
   CustomerField,
   CustomersTableType,
+  FormattedCustomersTable,
+  FormattedCustomersTable2,
   InvoiceForm,
   InvoicesTable,
   LatestInvoiceRaw,
@@ -11,16 +13,7 @@ import { formatCurrency } from './utils';
 
 export async function fetchRevenue() {
   try {
-    // Artificially delay a response for demo purposes.
-    // Don't do this in production :)
-
-    console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-
     const data = await sql<Revenue>`SELECT * FROM revenue`;
-
-    console.log('Data fetch completed after 3 seconds.');
-
     return data.rows;
   } catch (error) {
     console.error('Database Error:', error);
@@ -215,4 +208,20 @@ export async function fetchFilteredCustomers(query: string) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch customer table.');
   }
+}
+
+export async function fetchFormattedCustomers(): Promise<FormattedCustomersTable[]> {
+  const result = await sql<FormattedCustomersTable[]>`
+    SELECT
+      id,
+      name,
+      email,
+      image_url
+    FROM
+      customers
+    ORDER BY
+      name ASC
+  `;
+
+  return result.rows.flat()
 }

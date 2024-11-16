@@ -1,9 +1,13 @@
-import { Metadata } from "next"
+import { Metadata } from "next";
+import CustomersTable from "@/app/ui/customers/table";
+import { fetchFormattedCustomers } from "@/app/lib/data";
 
 export const metadata: Metadata = {
-  title: 'Customers',
-}
+  title: "Customers",
+};
 
-export default function Page() {
-    return <p>Customers page</p>
+export default async function Page() {
+  const customers = await fetchFormattedCustomers();
+
+  return <CustomersTable customers={customers} />;
 }

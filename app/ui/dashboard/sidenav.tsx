@@ -2,7 +2,7 @@ import Link from "next/link";
 import NavLinks from "@/app/ui/dashboard/nav-links";
 import { GlobeAltIcon, PowerIcon } from "@heroicons/react/24/outline";
 import { signOut } from "@/auth";
-import AcmeLogo from "@/app/ui/acme-logo";
+import Logo from "@/app/ui/logo";
 
 export default function SideNav() {
   return (
@@ -11,7 +11,7 @@ export default function SideNav() {
         className="mb-2 flex h-20 items-center justify-center rounded-md bg-myPrimary p-4 md:h-40"
         href="/"
       >
-        <AcmeLogo />
+        <Logo />
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />

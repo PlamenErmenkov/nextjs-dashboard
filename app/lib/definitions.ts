@@ -75,6 +75,13 @@ export type FormattedCustomersTable = {
   total_paid: string;
 };
 
+export type FormattedCustomersTable2 = {
+  id: string;
+  name: string;
+  email: string;
+  image_url: string;
+}
+
 export type CustomerField = {
   id: string;
   name: string;
