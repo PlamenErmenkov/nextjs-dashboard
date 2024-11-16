@@ -19,6 +19,11 @@ const config = {
     },
     extend: {
       colors: {
+        myBg: "#1d283a",
+        myText: "#eef0f2",
+        myPrimary: "#ea7e7e",
+        mySecondary: "#53495f",
+        myAccent: "#9986a2",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -23,7 +23,7 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased bg-myBg`}>
         {children}
         <Analytics />
       </body>
